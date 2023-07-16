@@ -1,0 +1,25 @@
+person:
+  name: "Michel França"
+  age: 21
+  height: 1.65
+  technologies:
+    - "Vue.js"
+    - "Node.js"
+    - "Nest.js"
+  cats:
+    - name: "Neko"
+      age: 5
+    - name: "Zeca"
+      age: 1
+    - name: "Luke"
+      age: 1
+  films:
+    - { name: "Koe no Katachi", rate: 10 }
+    - { name: "H.O.T.D", rate: 0 }
+    - { name: "Monogatari", rate: 8.4 }
+
+nullable: ~
+nullable2: null
+
+active: True
+inactive: False
