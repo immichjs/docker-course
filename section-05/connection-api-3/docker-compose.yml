@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  db:
+    image: mongo:latest
+    container_name: 'MONGODB_APP'
+    restart: always
+    env_file: ./config/db.env
+    ports:
+        - '27018:27017'
+    networks:
+      - dockercompose
+    volumes:
+      - ./docker-entrypoint-initdb.d/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+  
+  server:
+    depends_on: 
+     - db
+    build: ./
+    container_name: 'NODE_APP'
+    ports:
+      - '3000:3000'
+    restart: always
+    volumes:
+      - app:/app
+    networks:
+      - dockercompose
+
+volumes:
+  app:
+
+networks:
+  dockercompose:
